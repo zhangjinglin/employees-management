@@ -1,11 +1,11 @@
 <template>
   <div>
     <h1>Add</h1>
-    <input v-model="newEmp.name" /><br />
-    <input v-model="newEmp.phone" /><br />
-    <input v-model="newEmp.email" /><br />
-    <input v-model="newEmp.avatar" /><br />
-    <button @click="addNewEmp()">Add</button>
+    <el-input v-model="newEmp.name" placeholder="Please input the name" /><br />
+    <el-input v-model="newEmp.phone" placeholder="the telephone number" /><br />
+    <el-input v-model="newEmp.email" placeholder="" /><br />
+    <el-input v-model="newEmp.avatar" placeholder="" /><br />
+    <el-button type="primary" @click="addNewEmp()">Add</el-button>
   </div>
 </template>
 
