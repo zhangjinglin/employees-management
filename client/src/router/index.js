@@ -21,6 +21,7 @@ const routes = [
     path: '/edit',
     name: 'Edit',
     component: Edit,
+    props: true,
   },
   {
     path: '/about',

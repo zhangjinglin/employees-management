@@ -1,3 +1,13 @@
 <template>
-  <H1>Edit</H1>
+  <div>
+    <h1>Edit</h1>
+    {{ editEmp }}
+  </div>
 </template>
+
+<script>
+  export default {
+    name: 'Edit',
+    props: ['editEmp'],
+  }
+</script>

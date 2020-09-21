@@ -27,6 +27,7 @@
       ...mapActions(['addEmp']),
       addNewEmp() {
         this.addEmp(this.newEmp)
+        this.$router.push('/')
       },
     },
   }

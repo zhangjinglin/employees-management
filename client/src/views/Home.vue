@@ -17,7 +17,10 @@
     },
     methods: {
       edit(id) {
-        console.log(id)
+        this.$router.push({
+          name: 'Edit',
+          params: { editEmp: this.emps.find((e) => e.id === id) },
+        })
       },
     },
     components: {},
