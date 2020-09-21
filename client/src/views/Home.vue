@@ -1,6 +1,10 @@
 <template>
   <div>
-    {{ emps.length }}
+    <ul>
+      <li v-for="e in emps" :key="e.id">
+        {{ e.name }}
+      </li>
+    </ul>
   </div>
 </template>
 
