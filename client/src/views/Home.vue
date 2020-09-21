@@ -1,10 +1,17 @@
-<template> <div></div> </template>
+<template>
+  <div>
+    {{ emps.length }}
+  </div>
+</template>
 
 <script>
-  // @ is an alias to /src
-
   export default {
     name: 'Home',
+    computed: {
+      emps() {
+        return this.$store.state.employees
+      },
+    },
     components: {},
   }
 </script>
