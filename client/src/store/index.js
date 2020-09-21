@@ -21,4 +21,8 @@ export default new Vuex.Store({
         .then((result) => state.commit('setAllEmps', result))
     },
   },
+
+  getters: {
+    emps: (state) => state.employees,
+  },
 })

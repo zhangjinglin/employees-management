@@ -5,12 +5,11 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   export default {
     name: 'Home',
     computed: {
-      emps() {
-        return this.$store.state.employees
-      },
+      ...mapGetters(['emps']),
     },
     components: {},
   }
