@@ -13,12 +13,14 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    getAllEmps(state) {
-      fetch('http://localhost:3000/employees', {
+    async getAllEmps(state) {
+      const response = await fetch('http://localhost:3000/employees', {
         headers: { Accept: 'application/json' },
       })
-        .then((response) => response.json())
-        .then((result) => state.commit('setAllEmps', result))
+
+      const result = await response.json()
+
+      state.commit('setAllEmps', result)
     },
   },
 
