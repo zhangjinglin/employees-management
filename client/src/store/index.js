@@ -11,6 +11,9 @@ export default new Vuex.Store({
     setAllEmps(state, emps) {
       state.employees = emps
     },
+    addEmp(state, emp) {
+      state.employees.push(emp)
+    },
   },
   actions: {
     async getAllEmps(state) {
@@ -21,6 +24,18 @@ export default new Vuex.Store({
       const result = await response.json()
 
       state.commit('setAllEmps', result)
+    },
+    async addEmp(state, emp) {
+      console.log(emp)
+      const response = await fetch('http://localhost:3000/employees', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(emp),
+      })
+      const result = await response.json()
+      state.commit('addEmp', result)
     },
   },
 

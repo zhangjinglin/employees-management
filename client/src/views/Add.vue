@@ -1,28 +1,32 @@
 <template>
   <div>
     <h1>Add</h1>
-    <input v-model="name" /><br />
-    <input v-model="phone" /><br />
-    <input v-model="email" /><br />
-    <input v-model="avatar" /><br />
-    <button @click="addEmp()">Add</button>
+    <input v-model="newEmp.name" /><br />
+    <input v-model="newEmp.phone" /><br />
+    <input v-model="newEmp.email" /><br />
+    <input v-model="newEmp.avatar" /><br />
+    <button @click="addNewEmp()">Add</button>
   </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: 'Add',
     data() {
       return {
-        name: '',
-        phone: '',
-        email: '',
-        avatar: '',
+        newEmp: {
+          name: '',
+          phone: '',
+          email: '',
+          avatar: '',
+        },
       }
     },
     methods: {
-      addEmp() {
-        console.log(this.name, this.phone, this.email, this.avatar)
+      ...mapActions(['addEmp']),
+      addNewEmp() {
+        this.addEmp(this.newEmp)
       },
     },
   }
