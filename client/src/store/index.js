@@ -14,6 +14,10 @@ export default new Vuex.Store({
     addEmp(state, emp) {
       state.employees.push(emp)
     },
+    updateEmp(state, emp) {
+      const index = state.employees.findIndex((e) => e.id === emp.id)
+      state.employees.splice(index, 1, emp)
+    },
   },
   actions: {
     async getAllEmps(state) {
@@ -36,6 +40,19 @@ export default new Vuex.Store({
       })
       const result = await response.json()
       state.commit('addEmp', result)
+    },
+    async updateEmp({ commit }, emp) {
+      const response = await fetch(
+        `http://localhost:3000/employees/${emp.id}`,
+        {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(emp),
+        }
+      )
+
+      const result = await response.json()
+      commit('updateEmp', result)
     },
   },
 
